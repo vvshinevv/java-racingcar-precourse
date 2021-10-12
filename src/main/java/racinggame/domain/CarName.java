@@ -1,5 +1,8 @@
 package racinggame.domain;
 
+import racinggame.constance.RacingCarGameExceptionMessage;
+import racinggame.exception.RacingCarGameException;
+
 import java.util.Objects;
 
 public class CarName {
@@ -7,7 +10,18 @@ public class CarName {
     private final String carName;
 
     private CarName(String carName) {
+        validateCarName(carName);
         this.carName = carName;
+    }
+
+    private void validateCarName(String carName) {
+        if (carName == null || !isValidLength(carName)) {
+            throw new RacingCarGameException(RacingCarGameExceptionMessage.INVALID_CAR_NAME);
+        }
+    }
+
+    private Boolean isValidLength(String carName) {
+        return carName.length() > 0 && carName.length() <= 5;
     }
 
     public static CarName of(String carName) {

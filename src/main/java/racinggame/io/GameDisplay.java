@@ -5,6 +5,7 @@ import racinggame.domain.Car;
 import racinggame.domain.CarName;
 import racinggame.domain.CarPosition;
 import racinggame.domain.Cars;
+import racinggame.domain.TryCount;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,7 @@ public class GameDisplay {
     private static final Integer CAR_INITIAL_POSITION = 0;
     private static final String SPLIT_TOKEN_COMMA = ",";
     private static final String INPUT_CARS_MESSAGE = "경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)";
+    private static final String INPUT_TRY_MESSAGE = "시도할 횟수는 몇 회인가요?";
 
     public static Cars inputCars() {
         System.out.println(INPUT_CARS_MESSAGE);
@@ -27,5 +29,12 @@ public class GameDisplay {
         }
 
         return Cars.of(cars);
+    }
+
+    public static TryCount inputTryCount() {
+        System.out.println(INPUT_TRY_MESSAGE);
+        String line = Console.readLine();
+        int count = Integer.parseInt(line);
+        return TryCount.of(count);
     }
 }

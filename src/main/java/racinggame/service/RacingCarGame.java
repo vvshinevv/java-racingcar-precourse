@@ -2,6 +2,7 @@ package racinggame.service;
 
 import racinggame.domain.Cars;
 import racinggame.domain.MovingCondition;
+import racinggame.domain.TryCount;
 import racinggame.io.GameDisplay;
 import racinggame.util.RandomGenerator;
 
@@ -15,6 +16,7 @@ public class RacingCarGame {
 
     public void playRacingCarGame() {
         Cars cars = GameDisplay.inputCars();
+        TryCount tryCount = GameDisplay.inputTryCount();
     }
 
 }

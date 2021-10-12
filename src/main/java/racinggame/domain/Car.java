@@ -1,6 +1,6 @@
 package racinggame.domain;
 
-public class Car {
+public class Car implements Comparable<Car> {
 
     public static final Integer MOVE_POSITION_VALUE = 1;
     public static final Integer MIN_CONDITION_OF_CAR_MOVING = 0;
@@ -38,5 +38,15 @@ public class Car {
 
     public static Car of(CarPosition carPosition, CarName carName) {
         return new Car(carPosition, carName);
+    }
+
+    @Override
+    public int compareTo(Car o) {
+        return this.carPosition.compareTo(o.carPosition);
+    }
+
+    @Override
+    public String toString() {
+        return carName.toString();
     }
 }

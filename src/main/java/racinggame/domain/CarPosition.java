@@ -12,11 +12,15 @@ public class CarPosition {
 
     public String makeCarPosition(String carShape) {
         StringBuilder result = new StringBuilder();
-        for (int i = 0 ; i < carPosition ; i++) {
+        for (int i = 0; i < carPosition; i++) {
             result.append(carShape);
         }
 
         return result.toString();
+    }
+
+    public void addCarPosition(Integer carPosition) {
+        this.carPosition += carPosition;
     }
 
     public static CarPosition of(Integer carPosition) {

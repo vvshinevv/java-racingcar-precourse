@@ -1,5 +1,8 @@
 package racinggame.domain;
 
+import racinggame.constance.RacingCarGameExceptionMessage;
+import racinggame.exception.RacingCarGameException;
+
 import java.util.Objects;
 
 public class MovingCondition {
@@ -10,7 +13,18 @@ public class MovingCondition {
     private final Integer condition;
 
     private MovingCondition(Integer condition) {
+        validateConditionNumber(condition);
         this.condition = condition;
+    }
+
+    private void validateConditionNumber(Integer target) {
+        if (!isValidConditionNumber(target)) {
+            throw new RacingCarGameException(RacingCarGameExceptionMessage.INVALID_RANDOM_VALUE);
+        }
+    }
+
+    private Boolean isValidConditionNumber(Integer target) {
+        return target >= MIN_CONDITION_VALUE && target <= MAX_CONDITION_VALUE;
     }
 
     public static MovingCondition of(Integer condition) {

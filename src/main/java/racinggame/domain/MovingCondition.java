@@ -8,7 +8,7 @@ import java.util.Objects;
 public class MovingCondition {
 
     public static final Integer MIN_CONDITION_VALUE = 0;
-    public static final Integer MAX_CONDITION_VALUE = 10;
+    public static final Integer MAX_CONDITION_VALUE = 9;
 
     private final Integer condition;
 
@@ -24,7 +24,7 @@ public class MovingCondition {
     }
 
     private Boolean isValidConditionNumber(Integer target) {
-        return target >= MIN_CONDITION_VALUE && target < MAX_CONDITION_VALUE;
+        return target >= MIN_CONDITION_VALUE && target <= MAX_CONDITION_VALUE;
     }
 
     public Boolean biggerThan(MovingCondition that) {

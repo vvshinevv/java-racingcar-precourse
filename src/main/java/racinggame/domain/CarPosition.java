@@ -10,6 +10,15 @@ public class CarPosition {
         this.carPosition = carPosition;
     }
 
+    public String makeCarPosition(String carShape) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0 ; i < carPosition ; i++) {
+            result.append(carShape);
+        }
+
+        return result.toString();
+    }
+
     public static CarPosition of(Integer carPosition) {
         return new CarPosition(carPosition);
     }

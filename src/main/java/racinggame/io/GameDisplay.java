@@ -6,6 +6,8 @@ import racinggame.domain.CarName;
 import racinggame.domain.CarPosition;
 import racinggame.domain.Cars;
 import racinggame.domain.TryCount;
+import racinggame.domain.Winner;
+import racinggame.domain.Winners;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +20,7 @@ public class GameDisplay {
     private static final String INPUT_TRY_MESSAGE = "시도할 횟수는 몇 회인가요?";
     private static final String RESULT_MESSAGE = "실행결과";
     private static final String DIVIDE_TOKEN = ":";
+    private static final String WINNER_LIST_MESSAGE = "가 최종 우숭했습니다.";
 
     public static Cars inputCars() {
         System.out.println(INPUT_CARS_MESSAGE);
@@ -49,6 +52,26 @@ public class GameDisplay {
             System.out.println(car + DIVIDE_TOKEN + car.makeCarPosition());
         }
         System.out.println();
+    }
+
+    public static void printWinners(Winners winners) {
+        StringBuilder result = new StringBuilder();
+
+        int lastIndex = winners.length();
+        int currentIndex = 1;
+
+        for (Winner winner : winners) {
+            result.append(winner);
+            postfixSplitter(result, lastIndex, currentIndex++);
+        }
+
+        System.out.println(result + WINNER_LIST_MESSAGE);
+    }
+
+    private static void postfixSplitter(StringBuilder target, int lastIndex, int currentIndex) {
+        if (currentIndex != lastIndex) {
+            target.append(SPLIT_TOKEN_COMMA);
+        }
     }
 
 }

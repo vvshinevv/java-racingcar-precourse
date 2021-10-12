@@ -32,6 +32,10 @@ public class Car {
         return carPosition.makeCarPosition(CAR_SHAPE);
     }
 
+    public Winner winner() {
+        return Winner.of(carName);
+    }
+
     public static Car of(CarPosition carPosition, CarName carName) {
         return new Car(carPosition, carName);
     }

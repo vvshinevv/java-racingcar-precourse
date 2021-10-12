@@ -23,6 +23,10 @@ public class Car {
                 condition.smallerThan(MovingCondition.of(MAX_CONDITION_OF_CAR_MOVING)));
     }
 
+    public Boolean isSamePosition(Car car) {
+        return carPosition.equals(car.carPosition);
+    }
+
     public static Car of(CarPosition carPosition, CarName carName) {
         return new Car(carPosition, carName);
     }

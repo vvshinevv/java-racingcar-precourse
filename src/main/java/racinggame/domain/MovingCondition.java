@@ -27,6 +27,14 @@ public class MovingCondition {
         return target >= MIN_CONDITION_VALUE && target <= MAX_CONDITION_VALUE;
     }
 
+    public Boolean biggerThan(MovingCondition that) {
+        return condition >= that.condition;
+    }
+
+    public Boolean smallerThan(MovingCondition that) {
+        return condition <= that.condition;
+    }
+
     public static MovingCondition of(Integer condition) {
         return new MovingCondition(condition);
     }

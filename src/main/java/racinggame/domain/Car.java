@@ -5,6 +5,7 @@ public class Car {
     public static final Integer MOVE_POSITION_VALUE = 1;
     public static final Integer MIN_CONDITION_OF_CAR_MOVING = 0;
     public static final Integer MAX_CONDITION_OF_CAR_MOVING = 3;
+    public static final String CAR_SHAPE = "-";
 
     private final CarPosition carPosition;
     private final CarName carName;
@@ -25,6 +26,10 @@ public class Car {
 
     public Boolean isSamePosition(Car car) {
         return carPosition.equals(car.carPosition);
+    }
+
+    public String makeCarPosition() {
+        return carPosition.makeCarPosition(CAR_SHAPE);
     }
 
     public static Car of(CarPosition carPosition, CarName carName) {

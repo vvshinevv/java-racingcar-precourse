@@ -1,8 +1,9 @@
 package racinggame.domain;
 
+import java.util.Iterator;
 import java.util.List;
 
-public class Cars {
+public class Cars implements Iterable<Car> {
 
     private final List<Car> cars;
 
@@ -12,5 +13,10 @@ public class Cars {
 
     public static Cars of(List<Car> cars) {
         return new Cars(cars);
+    }
+
+    @Override
+    public Iterator<Car> iterator() {
+        return cars.iterator();
     }
 }

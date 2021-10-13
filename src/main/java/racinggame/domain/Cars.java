@@ -33,6 +33,10 @@ public class Cars implements Iterable<Car> {
         }
     }
 
+    public Boolean isCarsEmpty() {
+        return cars.isEmpty();
+    }
+
     public static Cars of(List<Car> cars) {
         return new Cars(cars);
     }

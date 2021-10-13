@@ -19,8 +19,10 @@ public class GameDisplay {
     private static final String INPUT_CARS_MESSAGE = "경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)";
     private static final String INPUT_TRY_MESSAGE = "시도할 횟수는 몇 회인가요?";
     private static final String RESULT_MESSAGE = "실행결과";
-    private static final String DIVIDE_TOKEN = ":";
-    private static final String WINNER_LIST_MESSAGE = "가 최종 우숭했습니다.";
+    private static final String DIVIDE_TOKEN = " : ";
+    private static final String WINNER_LIST_MESSAGE_1 = "최종 우승자는 ";
+    private static final String WINNER_LIST_MESSAGE_2 = " 입니다.";
+    private static final String ERROR = "[ERROR]";
 
     public static Cars inputCars() {
         System.out.println(INPUT_CARS_MESSAGE);
@@ -65,13 +67,17 @@ public class GameDisplay {
             postfixSplitter(result, lastIndex, currentIndex++);
         }
 
-        System.out.println(result + WINNER_LIST_MESSAGE);
+        System.out.println(WINNER_LIST_MESSAGE_1 + result + WINNER_LIST_MESSAGE_2);
     }
 
     private static void postfixSplitter(StringBuilder target, int lastIndex, int currentIndex) {
         if (currentIndex != lastIndex) {
             target.append(SPLIT_TOKEN_COMMA);
         }
+    }
+
+    public static void displayError(String error) {
+        System.out.println(ERROR + error);
     }
 
 }

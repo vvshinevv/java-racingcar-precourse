@@ -16,6 +16,10 @@ public class TryCount {
         return new TryCount(this.tryCount - 1);
     }
 
+    public Boolean isEmpty() {
+        return tryCount == null;
+    }
+
     public static TryCount of(Integer tryCount) {
         return new TryCount(tryCount);
     }
